@@ -8,11 +8,11 @@ function reverse (c) {
 
 borderJson.features.forEach(f => {
     f.properties = {};
-    if (f.type === "Polygon") {
+    if (f.geometry.type === "Polygon") {
         f.geometry.coordinates[0].forEach(reverse);
     }
-    if (f.type === "MultiPolygon") {
-        f.geometry.coordinates.forEach(a => a[0].forEach(reversed));
+    if (f.geometry.type === "MultiPolygon") {
+        f.geometry.coordinates.forEach(a => a[0].forEach(reverse));
     }
 });
 
