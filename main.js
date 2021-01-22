@@ -1,5 +1,5 @@
 const fs = require('fs');
-const borderJson = require('./china-border.json');
+const borderJson = require('./china-border.geojson');
 
 function reverse (c) {
     c[0] = Number(Number(c[0] - 180).toFixed(4));
@@ -16,7 +16,7 @@ borderJson.features.forEach(f => {
     }
 });
 
-fs.writeFile('china-reversed.json', JSON.stringify(borderJson, null, 4), function (err) {
+fs.writeFile('china-reversed.geojson', JSON.stringify(borderJson, null, 4), function (err) {
   if (err) return console.log(err);
-  console.log('Wrote china-reversed.json');
+  console.log('Wrote china-reversed.geojson');
 });
